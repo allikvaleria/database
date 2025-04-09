@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="database.Views.FriendPage"
-             Title="FriendPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:Class="database.Views.FriendPage">
+    <StackLayout>
+        <StackLayout x:Name="friendStack">
+            <Label Text="Имя" />
+            <Entry Text="{Binding Name}" FontSize="Medium"/>
+            <Label Text="Электронная почта" />
+            <Entry Text="{Binding Email}" FontSize="Medium"/>
+            <Label Text="Телефон" />
+            <Entry Text="{Binding Phone}" FontSize="Medium"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Button
+                Text="Добавить"
+                Command="{Binding ListViewModel.SaveFriendCommand}"
+                CommandParameter="{Binding}"/>
+            <Button
+                Text="Удалить"
+                Command="{Binding ListViewModel.DeleteFriendCommand}"
+                CommandParameter="{Binding}"/>
+            <Button
+                Text="Назад"
+                Command="{Binding Path=ListViewModel.BackCommand}"/>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>

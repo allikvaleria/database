@@ -1,9 +1,16 @@
-namespace database.Views;
+using database.ViewModels;
 
-public partial class FriendPage : ContentPage
+namespace database.Views
 {
-	public FriendPage()
-	{
-		InitializeComponent();
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class FriendPage : ContentPage
+    {
+        public FriendViewModel ViewModel { get; private set; }
+        public FriendPage(FriendViewModel vm)
+        {
+            InitializeComponent();
+            ViewModel = vm;
+            this.BindingContext = ViewModel;
+        }
+    }
 }

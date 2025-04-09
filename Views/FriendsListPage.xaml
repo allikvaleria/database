@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="database.Views.FriendsListPage"
+             x:Class="database.Views.FriendsListPage">
     <StackLayout>
         <Button Text="Добавить" Command="{Binding CreateFriendCommand}" />
-    <ListView x:Name="bookList" ItemsSource="{Binding Friends}"
+        <ListView x:Name="bookList" ItemsSource="{Binding Friends}"
                   SelectedItem="{Binding SelectedFriend, Mode=TwoWay}" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -19,6 +19,6 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-    </ListView>
+        </ListView>
     </StackLayout>
 </ContentPage>
